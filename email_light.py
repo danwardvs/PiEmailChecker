@@ -1,12 +1,8 @@
 
-import RPi.GPIO as GPIO, feedparser, time, os.path
+import feedparser, time, os.path
 
-USERNAME = "username"   
-PASSWORD = "password"     
-
-GPIO.setmode(GPIO.BCM)
-LIGHTS = 18
-GPIO.setup(LIGHTS, GPIO.OUT)
+USERNAME = "dannyvanstemp@gmail.com"   
+PASSWORD = "asdfadsf!"     
 
 while True:
 
@@ -37,14 +33,6 @@ while True:
             last_mails = cur_mails
             f = open('emails.txt', 'w')
             f.write(str(last_mails))
-
-            GPIO.output(LIGHTS, True) #flash the leds a couple times
-            time.sleep(0.4) #in seconds
-            GPIO.output(LIGHTS, False)
-            time.sleep(0.1)
-            GPIO.output(LIGHTS, True)
-            time.sleep(0.4)
-            GPIO.output(LIGHTS, False)
 
         f.close()
         time.sleep(60)
